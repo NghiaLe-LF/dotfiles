@@ -67,7 +67,7 @@ dir_with_separator() {
     if [[ "$PWD" == "$HOME" ]]; then
         echo ""
     else
-        echo "%F{white}-%f%F{173}%1~%f"
+        echo "%F{white}-%f%F{81}%1~%f"
     fi
 }
 
@@ -83,9 +83,9 @@ context_prefix() {
     fi
 }
 
-# Function to determine context suffix (project:namespace) — project màu cát (180), namespace cam hổ phách (172)
+# Function to determine context suffix (project:namespace) — project vàng gold (220), namespace hồng raspberry (204)
 context_suffix() {
-    echo "%F{180}($(k8s_project):%F{172}$(k8s_namespace)%F{180})%f"
+    echo "%F{220}($(k8s_project):%F{204}$(k8s_namespace)%F{220})%f"
 }
 
 # Custom prompt with colors following format: (.venv)user-workdir(branch) or user(project:namespace)-workdir(branch)
@@ -93,7 +93,7 @@ context_suffix() {
 autoload -U colors && colors
 setopt PROMPT_SUBST
 
-PROMPT='$(context_prefix)%F{green}%n%f$(context_suffix)$(dir_with_separator)%F{173}$(git_branch)%f$ '
+PROMPT='$(context_prefix)%F{84}%n%f$(context_suffix)$(dir_with_separator)%F{135}$(git_branch)%f$ '
 
 
 eval $(thefuck --alias)
