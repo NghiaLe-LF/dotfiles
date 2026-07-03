@@ -160,8 +160,11 @@ syntax-highlighting, completions), thêm alias và prompt tuỳ biến.
 **Prompt** tự đổi theo ngữ cảnh:
 
 - Trong virtualenv: `(.venv)-user-dir(branch)$`
-- Ngoài venv: `user(namespace)-dir(branch)$` — `namespace` là k8s namespace hiện
-  tại (đọc qua `kubens`, fallback `default` nếu không có).
+- Ngoài venv: `user(project:namespace)-dir(branch)$` — `project` là GCP project
+  tách từ tên cluster GKE của context k8s hiện tại
+  (`gke_<project>_<region>_<cluster>`; fallback về tên context nếu không phải GKE),
+  `namespace` là k8s namespace hiện tại (đọc qua `kubens`, fallback `default`
+  nếu không có).
 - `dir` chỉ hiện khi **không** ở `$HOME`; `(branch)` chỉ hiện khi đang trong git repo.
 
 **thefuck**: `eval $(thefuck --alias)` — gõ `fuck` để sửa nhanh lệnh vừa gõ sai.

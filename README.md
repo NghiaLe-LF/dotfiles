@@ -164,8 +164,11 @@ syntax-highlighting, completions), plus custom aliases and a custom prompt.
 **Prompt** adapts to context:
 
 - Inside a virtualenv: `(.venv)-user-dir(branch)$`
-- Outside a venv: `user(namespace)-dir(branch)$` — `namespace` is the current k8s
-  namespace (read via `kubens`, falls back to `default` if unavailable).
+- Outside a venv: `user(project:namespace)-dir(branch)$` — `project` is the GCP
+  project parsed from the current kube context's GKE cluster name
+  (`gke_<project>_<region>_<cluster>`; falls back to the raw context name),
+  `namespace` is the current k8s namespace (read via `kubens`, falls back to
+  `default` if unavailable).
 - `dir` only shows when **not** in `$HOME`; `(branch)` only shows inside a git repo.
 
 **thefuck**: `eval $(thefuck --alias)` — type `fuck` to quickly fix the command you
