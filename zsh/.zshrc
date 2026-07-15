@@ -17,7 +17,9 @@ alias commit="git commit -m"
 alias add="git add ."
 alias status="git status"
 alias checkout="git checkout"
-
+#base64
+encode64() { echo -n "$1" | base64 }
+decode64() { echo "$1" | base64 -d }
 #kubectl
 alias k="kubectl"
 alias kube="kubectl"
